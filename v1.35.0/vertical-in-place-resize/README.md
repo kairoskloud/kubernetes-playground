@@ -30,7 +30,7 @@ While for memory `restartPolicy: RestartContainer`, requires the container to be
 Creates a Pod named springboot-resize-in-place defining the initial CPU and memory requests/limits. This serves as the baseline configuration before any resizing.
 
 ```sh
-kubectl apply -f https://github.com/kairoskloud/kubernetes-playground/blob/main/v1.35.0/vertical-in-place-resize/pod.v0.kyaml
+kubectl apply -f https://raw.githubusercontent.com/kairoskloud/kubernetes-playground/refs/heads/main/v1.35.0/vertical-in-place-resize/pod.v0.kyaml
 ```
 
 ### Inspect Container Resources and Restart Count
@@ -73,7 +73,7 @@ Updates the CPU limit of the running Pod. Uses the resize subresource, enabling 
 
 
 ```sh
-kubectl apply -f https://github.com/kairoskloud/kubernetes-playground/blob/main/v1.35.0/vertical-in-place-resize/pod.v1.kyaml --subresource resize --server-side
+kubectl apply -f https://raw.githubusercontent.com/kairoskloud/kubernetes-playground/refs/heads/main/v1.35.0/vertical-in-place-resize/pod.v1.kyaml --subresource resize --server-side
 ```
 
 ### Verification 
@@ -107,7 +107,7 @@ The CPU limit increased from 100m to 200m while memory settings remain unchanged
 ## 3. Adjust Memory limit for the pod
 
 ```sh
-kubectl apply -f https://github.com/kairoskloud/kubernetes-playground/blob/main/v1.35.0/vertical-in-place-resize/pod.v2.kyaml --subresource resize --server-side
+kubectl apply -f https://raw.githubusercontent.com/kairoskloud/kubernetes-playground/refs/heads/main/v1.35.0/vertical-in-place-resize/pod.v2.kyaml --subresource resize --server-side
 ```
 
 ### Verification
@@ -137,5 +137,5 @@ kubectl get pod springboot-resize-in-place -o json | jq '.status.containerStatus
 ## 4. Cleanup
 
 ```sh
-kubectl delete -f https://github.com/kairoskloud/kubernetes-playground/blob/main/v1.35.0/vertical-in-place-resize/pod.v2.kyaml
+kubectl delete -f https://raw.githubusercontent.com/kairoskloud/kubernetes-playground/refs/heads/main/v1.35.0/vertical-in-place-resize/pod.v2.kyaml
 ```
