@@ -1,0 +1,16 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: StressChaos
+metadata:
+  name: memory-fixed-percent-springboot
+  namespace: default
+spec:
+  mode: fixed-percent
+  value: '80'
+  duration: '10m'
+  selector:
+    labelSelectors:
+      'app': 'springboot-starterkit'
+  stressors:
+    memory:
+      workers: 4
+      size: '256MB'
