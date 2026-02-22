@@ -52,9 +52,7 @@ spec:
       labels:
         app: springboot-starterkit
         app.kubernetes.io/name: springboot-starterkit
-        version: v1  # Add version label for traffic management
-      annotations:
-        sidecar.istio.io/inject: "true"  # Enable Istio sidecar injection
+        version: v1
     spec:
       containers:
       - name: springboot-starterkit
