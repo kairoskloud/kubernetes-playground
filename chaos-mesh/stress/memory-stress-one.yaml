@@ -1,0 +1,15 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: StressChaos
+metadata:
+  name: memory-one-stress-springboot
+  namespace: default
+spec:
+  mode: one
+  duration: '5m'
+  selector:
+    labelSelectors:
+      'app': 'springboot-starterkit'
+  stressors:
+    memory:
+      workers: 2
+      size: '256MB'
