@@ -1,0 +1,16 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: StressChaos
+metadata:
+  name: cpu-fixed-stress-springboot
+  namespace: default
+spec:
+  mode: fixed-percent
+  value: '80'
+  duration: '10m'
+  selector:
+    labelSelectors:
+      'app': 'springboot-starterkit'
+  stressors:
+    cpu:
+      workers: 4
+      load: 80      
