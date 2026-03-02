@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-starterkit
+  namespace: default
+  labels:
+    app: springboot-starterkit
+    app.kubernetes.io/name: springboot-starterkit
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: springboot-starterkit
+  template:
+    metadata:
+      labels:
+        app: springboot-starterkit
+        app.kubernetes.io/name: springboot-starterkit
+        version: v1  # Add version label for traffic management
+      annotations:
+        sidecar.istio.io/inject: "true"  # Enable Istio sidecar injection
+    spec:
+      containers:
+      - name: springboot-starterkit
+        image: ghcr.io/josephrodriguez/springboot-starterkit:1.4.1
+        ports:
+        - containerPort: 8080
+          name: http
+        resources:
+          requests:
+            cpu: 400m
+            memory: 512Mi
+          limits:
+            memory: 512Mi
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          failureThreshold: 5
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8080
+          failureThreshold: 5
+          initialDelaySeconds: 15
+          periodSeconds: 10
