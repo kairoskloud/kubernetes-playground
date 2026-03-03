@@ -113,6 +113,7 @@ StressChaos is used to simulate CPU and memory stress on pods. Example resources
 
 ---
 
+
 ## 4. Pod Fault Cases
 
 This section covers the different Pod fault scenarios available in this playground. You can find YAML manifests for various pod failure and kill cases under the `pod-faults/` directory:
@@ -124,7 +125,11 @@ This section covers the different Pod fault scenarios available in this playgrou
   - [pod-failure-one.yaml](pod-faults/pod-failure/pod-failure-one.yaml)
   - [pod-failure-random-max-percent.yaml](pod-faults/pod-failure/pod-failure-random-max-percent.yaml)
 - **Pod Kill:**
-  - See manifests in [pod-faults/pod-kill/](pod-faults/pod-kill/)
+  - [pod-kill-all.yaml](pod-faults/pod-kill/pod-kill-all.yaml)
+  - [pod-kill-fixed-percent.yaml](pod-faults/pod-kill/pod-kill-fixed-percent.yaml)
+  - [pod-kill-fixed.yaml](pod-faults/pod-kill/pod-kill-fixed.yaml)
+  - [pod-kill-one.yaml](pod-faults/pod-kill/pod-kill-one.yaml)
+  - [pod-kill-random-max-percent.yaml](pod-faults/pod-kill/pod-kill-random-max-percent.yaml)
 - **Container Kill:**
   - See manifests in [pod-faults/container-kill/](pod-faults/container-kill/)
 
