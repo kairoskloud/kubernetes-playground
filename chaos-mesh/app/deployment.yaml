@@ -7,7 +7,7 @@ metadata:
     app: springboot-starterkit
     app.kubernetes.io/name: springboot-starterkit
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: springboot-starterkit
@@ -37,12 +37,12 @@ spec:
             path: /actuator/health
             port: 8080
           failureThreshold: 5
-          initialDelaySeconds: 30
-          periodSeconds: 10
+          initialDelaySeconds: 60
+          periodSeconds: 15
         readinessProbe:
           httpGet:
             path: /actuator/health/readiness
             port: 8080
-          failureThreshold: 5
+          failureThreshold: 10
           initialDelaySeconds: 15
-          periodSeconds: 10
+          periodSeconds: 15
