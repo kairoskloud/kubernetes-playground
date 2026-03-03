@@ -1,14 +1,19 @@
-# Chaos Mesh & StressChaos Guide
 
-## 1. Install Chaos Mesh
+# Chaos Mesh Playground
+
+This guide demonstrates how to use [Chaos Mesh](https://chaos-mesh.org/) for chaos engineering in Kubernetes, including both StressChaos and Pod Fault scenarios.
+
+---
+
+## 1. Installation of Chaos Mesh
 
 Chaos Mesh is a powerful cloud-native chaos engineering platform for Kubernetes. To install it using [KillerCoda](https://killercoda.com/):
 
-### Prerequisites
+**Prerequisites:**
 - Kubernetes cluster
 - kubectl installed
 
-### Installation Steps
+**Installation Steps:**
 1. Add Chaos Mesh Helm repo:
    ```bash
    helm repo add chaos-mesh https://charts.chaos-mesh.org
@@ -24,13 +29,9 @@ For more details, see the [official docs](https://chaos-mesh.org/docs/).
 
 ---
 
-
-## 2. Deploy the Target Application
+## 2. Deploy the Deployment
 
 Before running Chaos Mesh experiments, deploy the target application. For example, to deploy the `springboot-starterkit` used in the StressChaos resources:
-
-### Deploy the Application
-You can deploy the target application directly with an inline command using a heredoc:
 
 ```bash
 kubectl apply -f - <<EOF
@@ -86,11 +87,11 @@ EOF
 
 ---
 
-## 3. Deploy StressChaos Resources
+## 3. StressChaos Cases
 
 StressChaos is used to simulate CPU and memory stress on pods. Example resources are provided in the `/chaos-mesh/stress/` directory.
 
-### Deploying a StressChaos Resource
+**Deploying a StressChaos Resource:**
 1. Choose a YAML file from:
    - `/chaos-mesh/stress/cpu/`
    - `/chaos-mesh/stress/memory/`
@@ -103,7 +104,7 @@ StressChaos is used to simulate CPU and memory stress on pods. Example resources
    kubectl apply -f chaos-mesh/stress/memory/fixed-percent.yaml
    ```
 
-### Resource Structure
+**Resource Structure:**
 - `cpu/` and `memory/` folders contain YAMLs for different stress modes:
   - `all.yaml`: Stress all pods
   - `fixed-percent.yaml`: Stress a fixed percentage
@@ -112,14 +113,29 @@ StressChaos is used to simulate CPU and memory stress on pods. Example resources
 
 ---
 
-## 4. Clean Up
-To remove a StressChaos experiment:
-```bash
-kubectl delete -f <path-to-yaml>
-```
+## 4. Pod Fault Cases
+
+This section covers the different Pod fault scenarios available in this playground. You can find YAML manifests for various pod failure and kill cases under the `pod-faults/` directory:
+
+- **Pod Failure:**
+  - [pod-failure-all.yaml](pod-faults/pod-failure/pod-failure-all.yaml)
+  - [pod-failure-fixed-percent.yaml](pod-faults/pod-failure/pod-failure-fixed-percent.yaml)
+  - [pod-failure-fixed.yaml](pod-faults/pod-failure/pod-failure-fixed.yaml)
+  - [pod-failure-one.yaml](pod-faults/pod-failure/pod-failure-one.yaml)
+  - [pod-failure-random-max-percent.yaml](pod-faults/pod-failure/pod-failure-random-max-percent.yaml)
+- **Pod Kill:**
+  - See manifests in [pod-faults/pod-kill/](pod-faults/pod-kill/)
+- **Container Kill:**
+  - See manifests in [pod-faults/container-kill/](pod-faults/container-kill/)
+
+### Demo Video
+
+Watch a demonstration of pod fault injection in action:
+
+<video src="https://raw.githubusercontent.com/kairoskloud/kubernetes-playground/refs/heads/chaos/implement-pod-failure/chaos-mesh/assets/chaos-mesh-pod-fault.mp4" controls width="600"></video>
 
 ---
 
-## References
+## 5. References
 - [Chaos Mesh Documentation](https://chaos-mesh.org/docs/)
 - [StressChaos API Reference](https://chaos-mesh.org/docs/basic-features/)
