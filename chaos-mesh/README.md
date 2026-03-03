@@ -85,7 +85,7 @@ This section covers the different Pod fault scenarios available in this playgrou
 
 Watch a demonstration of pod fault injection in action:
 
-<video src="https://raw.githubusercontent.com/kairoskloud/kubernetes-playground/main/chaos-mesh/assets/chaos-mesh-pod-fault.mp4" controls width="600"></video>
+[![Watch the video](https://raw.githubusercontent.com/kairoskloud/kubernetes-playground/main/chaos-mesh/assets/chaos-mesh-pod-fault.png)](https://raw.githubusercontent.com/kairoskloud/kubernetes-playground/main/chaos-mesh/assets/chaos-mesh-pod-fault.mp4)
 
 ---
 
