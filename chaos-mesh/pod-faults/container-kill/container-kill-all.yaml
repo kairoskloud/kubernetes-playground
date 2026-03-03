@@ -1,0 +1,12 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: container-kill-all-springboot
+  namespace: default
+spec:
+  action: container-kill
+  mode: all
+  containerNames: ['springboot-starterkit']
+  selector:
+    labelSelectors:
+      'app': 'springboot-starterkit'

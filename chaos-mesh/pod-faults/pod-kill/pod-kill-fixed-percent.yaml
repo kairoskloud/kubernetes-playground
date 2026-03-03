@@ -1,0 +1,12 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: pod-kill-fixed-percent-springboot
+  namespace: default
+spec:
+  action: pod-kill
+  mode: fixed-percent
+  value: '80'
+  selector:
+    labelSelectors:
+      'app': 'springboot-starterkit'

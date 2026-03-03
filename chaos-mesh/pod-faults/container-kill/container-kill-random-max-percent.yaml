@@ -1,0 +1,13 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: container-kill-random-max-percent-springboot
+  namespace: default
+spec:
+  action: container-kill
+  mode: random-max-percent
+  containerNames: ['springboot-starterkit']
+  value: '80'
+  selector:
+    labelSelectors:
+      'app': 'springboot-starterkit'
