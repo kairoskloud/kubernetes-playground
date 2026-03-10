@@ -4,7 +4,7 @@ resource "aws_eks_node_group" "default" {
   node_role_arn   = aws_iam_role.eks_node_role.arn
   subnet_ids      = [for s in aws_subnet.eks_private : s.id]
 
-  instance_types = ["t3.medium"]
+  instance_types = ["m7i-flex.large"]
   capacity_type  = "ON_DEMAND"
 
   scaling_config {

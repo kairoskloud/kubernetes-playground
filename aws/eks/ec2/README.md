@@ -30,7 +30,7 @@ Key input variables are defined in `variables.tf`:
 | `node_min_size`           | `3`                                 | Minimum number of nodes in the managed node group.                              |
 | `node_max_size`           | `5`                                 | Maximum number of nodes in the managed node group.                              |
 | `node_desired_size`       | `3`                                 | Desired number of nodes in the managed node group.                              |
-| `node_instance_types`     | `["t3.medium"]`                     | EC2 instance types for the managed node group.                                  |
+| `node_instance_types`     | `["m7i-flex.large"]`                | EC2 instance types for the managed node group.                                  |
 | `tags`                    | `{}`                                | Map of tags applied to supported AWS resources.                                 |
 
 ---
@@ -52,7 +52,7 @@ private_subnet_cidrs = ["10.1.11.0/24", "10.1.12.0/24"]
 node_min_size     = 3
 node_max_size     = 5
 node_desired_size = 3
-node_instance_types = ["t3.medium"]
+node_instance_types = ["m7i-flex.large"]
 
 tags = {
   Environment = "dev"
@@ -99,7 +99,7 @@ Confirm `yes` when prompted.
 Use the AWS CLI to update your kubeconfig:
 
 ```bash
-aws eks update-kubeconfig --name my-eks-ec2 --region us-east-1
+aws eks update-kubeconfig --name eks-ec2-cluster --region us-east-1
 ```
 
 After this, `kubectl get nodes` should show the EC2 worker nodes.

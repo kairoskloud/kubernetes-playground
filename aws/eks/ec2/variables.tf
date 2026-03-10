@@ -86,7 +86,7 @@ variable "node_desired_size" {
 variable "node_instance_types" {
   description = "Instance types to use for the managed node group"
   type        = list(string)
-  default     = ["t3.medium"]
+  default     = ["m7i-flex.large"]
 }
 
 variable "tags" {
