@@ -1,0 +1,38 @@
+# Terraform
+*.tfstate
+*.tfstate.backup
+.terraform.tfstate.lock.info
+.terraform/
+.terraform.lock.hcl
+crash.log
+debug.log
+*.log
+
+# Local variable files
+*.tfvars
+*.tfvars.json
+
+# Sensitive files
+*.env
+
+# Ignore plan files
+*.plan
+
+# Ignore output files
+output/
+
+# Ignore provider override files
+override.tf
+override.tf.json
+
+# Ignore generated files
+*.bak
+*.tmp
+
+# Ignore IDE/editor files
+.vscode/
+.idea/
+.DS_Store
+
+# Ignore other system files
+Thumbs.db
